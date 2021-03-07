@@ -10,7 +10,11 @@ public class Auto {
 	public static int cantidadCreados;
 	
 	public int cantidadAsientos() {
-		return asientos.length;
+		int c = 0;
+	    for (Asiento a : asientos)
+	      if (a != null)
+	        c++;
+	    return c;
 	}
 	
 	public String verificarIntegridad() {
@@ -23,7 +27,7 @@ public class Auto {
 		}
 		if (k) {
 			for (Asiento a : asientos) {
-				if (a.registro != this.registro) {
+				if (a != null && a.registro != this.registro) {
 					k = false;
 				}
 			}
